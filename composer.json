@@ -1,0 +1,17 @@
+{
+    "require": {
+        "slim/slim": "^4.10",
+        "propel/propel": "~2.0@dev",
+        "slim/psr7": "1.5",
+        "slim/php-view": "3.1",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "plantlogic\\": "app",
+            "modals\\": "app/modals"
+        }
+    }
+}
