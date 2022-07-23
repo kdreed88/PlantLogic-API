@@ -2,10 +2,10 @@
 
 namespace plantlogic\middleware;
 
-use plantlogic\response\APIResponse;
+use plantlogic\objects\APIResponse;
 use plantlogic\utilities\UtilityEnvironmentVariables;
-use Slim\Handlers\Strategies\RequestHandler;
-use Slim\Psr7\Request;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Psr7\Response;
 
 class MiddlewareAuthentication
@@ -24,7 +24,7 @@ class MiddlewareAuthentication
         if (count($headers) > 0 && array_key_exists("x-app-header", $headers))
         {
             // Check that the ap pheader key matches the one saved in the environment
-            if ($headers['x-app-header'] === UtilityEnvironmentVariables::getInstance()->getVariable('X_APP_HEADER'))
+            if ($headers['x-app-header'][0] === UtilityEnvironmentVariables::getInstance()->getVariable('X_APP_HEADER'))
             {
                 // Handle the next process in the request chain
                 return $handler->handle($request);
@@ -32,6 +32,6 @@ class MiddlewareAuthentication
         }
 
         // Return the proper response indicating forbidden access
-        return (new Response())->withStatus(APIResponse::Unauthorized, "Unable to locate session data");
+        return (new Response())->withStatus(APIResponse::Unauthorized, "Unauthorized");
     }
 }

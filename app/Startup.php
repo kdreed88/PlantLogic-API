@@ -25,13 +25,13 @@ class Startup
     private function __construct()
     {
         // Load the environment variable instance
-        UtilityEnvironmentVariables::getInstance();
+        UtilityEnvironmentVariables::getInstance(__DIR__);
 
         // Instantiate the app factory
         $this->app = AppFactory::create();
 
         // Set the base path for use when the execution location is in a sub-directory from the web root
-        $this->app->setBasePath("apiv2");
+        $this->app->setBasePath("/apiv2");
 
         // Add in the routing middleware hooks
         $this->app->addRoutingMiddleware();

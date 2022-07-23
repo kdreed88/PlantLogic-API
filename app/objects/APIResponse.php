@@ -1,6 +1,6 @@
 <?php
 
-namespace plantlogic\response;
+namespace plantlogic\objects;
 
 use plantlogic\utilities\UtilityArrayCleanup;
 use Slim\Psr7\Response;

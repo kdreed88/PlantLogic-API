@@ -10,17 +10,17 @@ class UtilityEnvironmentVariables
 
     private array $environment_variables;
 
-    public static function getInstance(): UtilityEnvironmentVariables
+    public static function getInstance(?string $appDir = null): UtilityEnvironmentVariables
     {
         if (self::$instance === null)
-            self::$instance = new UtilityEnvironmentVariables();
+            self::$instance = new UtilityEnvironmentVariables($appDir);
 
         return self::$instance;
     }
 
-    private function __construct()
+    private function __construct(string $appDir)
     {
-        $dotenv = Dotenv::createImmutable(dirname(__DIR__));
+        $dotenv = Dotenv::createImmutable(dirname($appDir));
         $this->environment_variables = $dotenv->load();
     }
 

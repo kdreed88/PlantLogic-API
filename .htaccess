@@ -1,7 +1,7 @@
 RewriteEngine On
 
-RewriteRule ^(.*)favicon\.(ico|gif|png|jpe?g)$ http://www.google.com/images/favicon.ico [R=310,L,NC]
+RewriteRule ^(.*)favicon\.(ico|gif|png|jpe?g)$ http://www.google.com/images/favicon.ico [R=301,L,NC]
 
-RewriteCond %(REQUEST_FILENAME) !-f
-RewriteCond %(REQUEST_FILENAME) !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
