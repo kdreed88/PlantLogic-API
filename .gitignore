@@ -3,3 +3,7 @@
 /.idea/modules.xml
 /.idea/vcs.xml
 /.idea/PlantLogic-API.iml
+/app/modals/Base/
+/app/modals/map/
+/.idea/.gitignore
+/.idea/php.xml

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" namespace="\modals" defaultPhpNamingMethod="underscore">
+  <table name="CustomCalibrations" idMethod="native" phpName="Customcalibrations">
+    <column name="ID" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="SoilTopMoistureIntercept" phpName="Soiltopmoistureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilTopMoistureMultiplier" phpName="Soiltopmoisturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleMoistureIntercept" phpName="Soilmiddlemoistureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleMoistureMultiplier" phpName="Soilmiddlemoisturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilBottomMoistureIntercept" phpName="Soilbottommoistureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilBottomMoistureMultiplier" phpName="Soilbottommoisturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripECIntercept" phpName="Sensordripecintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripECMultiplier" phpName="Sensordripecmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripPHIntercept" phpName="Sensordripphintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripPHMultiplier" phpName="Sensordripphmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainECIntercept" phpName="Sensordrainecintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainECMultiplier" phpName="Sensordrainecmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainPHIntercept" phpName="Sensordrainphintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainPHMultiplier" phpName="Sensordrainphmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainVolumeIntercept" phpName="Sensordrainvolumeintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainVolumeMultiplier" phpName="Sensordrainvolumemultiplier" type="DOUBLE" required="true"/>
+    <column name="BatteryVoltsIntercept" phpName="Batteryvoltsintercept" type="DOUBLE" required="true"/>
+    <column name="BatteryVoltsMultiplier" phpName="Batteryvoltsmultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilTopTemperatureIntercept" phpName="Soiltoptemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilTopTemperatureMultiplier" phpName="Soiltoptemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleTemperatureIntercept" phpName="Soilmiddletemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleTemperatureMultiplier" phpName="Soilmiddletemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilBottomTemperatureIntercept" phpName="Soilbottomtemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilBottomTemperatureMultiplier" phpName="Soilbottomtemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripTemperatureIntercept" phpName="Sensordriptemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripTemperatureMultiplier" phpName="Sensordriptemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainTemperatureIntercept" phpName="Sensordraintemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainTemperatureMultiplier" phpName="Sensordraintemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideHumidityIntercept" phpName="Sensoroutsidehumidityintercept" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideHumidityMultiplier" phpName="Sensoroutsidehumiditymultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorInsideHumidityIntercept" phpName="Sensorinsidehumidityintercept" type="DOUBLE" required="true"/>
+    <column name="SensorInsideHumidityMultiplier" phpName="Sensorinsidehumiditymultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideTemperatureIntercept" phpName="Sensoroutsidetemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorInsideTemperatureMultiplier" phpName="Sensorinsidetemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorInsideTemperatureIntercept" phpName="Sensorinsidetemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideTemperatureMultiplier" phpName="Sensoroutsidetemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripVolumeIntercept" phpName="Sensordripvolumeintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripVolumeMultiplier" phpName="Sensordripvolumemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripVolumeMeter" phpName="Sensordripvolumemeter" type="DOUBLE" required="true"/>
+    <column name="CreatedAt" phpName="Createdat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="UpdatedAt" phpName="Updatedat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="DeviceID" phpName="Deviceid" type="INTEGER"/>
+    <foreign-key foreignTable="Devices" name="FK_e5f27063a30e4405da32e7d6493">
+      <reference local="DeviceID" foreign="ID"/>
+    </foreign-key>
+    <unique name="REL_e5f27063a30e4405da32e7d649">
+      <unique-column name="DeviceID"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="DeviceAlarmConfigs" idMethod="native" phpName="Devicealarmconfigs">
+    <column name="Name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="Key" phpName="Key" type="VARCHAR" size="255" required="true"/>
+    <column name="GreaterThan" phpName="Greaterthan" type="DOUBLE"/>
+    <column name="LessThan" phpName="Lessthan" type="DOUBLE"/>
+    <column name="UpdatedBy" phpName="Updatedby" type="DOUBLE" required="true"/>
+    <column name="CreatedAt" phpName="Createdat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="UpdatedAt" phpName="Updatedat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="ID" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="DeviceAlarmConfigurations" idMethod="native" phpName="Devicealarmconfigurations">
+    <column name="alarm_configuration_id" phpName="AlarmConfigurationId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="device_id" phpName="DeviceId" type="INTEGER" required="true"/>
+    <column name="alarm_type" phpName="AlarmType" type="VARCHAR" size="32" required="true"/>
+    <column name="low_value" phpName="LowValue" type="FLOAT" size="6" scale="2"/>
+    <column name="low_value_delay" phpName="LowValueDelay" type="INTEGER"/>
+    <column name="low_value_repeat" phpName="LowValueRepeat" type="INTEGER"/>
+    <column name="low_value_disable" phpName="LowValueDisable" type="TINYINT"/>
+    <column name="high_value" phpName="HighValue" type="FLOAT" size="6" scale="2"/>
+    <column name="high_value_delay" phpName="HighValueDelay" type="INTEGER"/>
+    <column name="high_value_repeat" phpName="HighValueRepeat" type="INTEGER"/>
+    <column name="high_value_disable" phpName="HighValueDisable" type="TINYINT"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" required="true"/>
+    <column name="created" phpName="Created" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="updated" phpName="Updated" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <unique name="UQ_DeviceId_AlarmType">
+      <unique-column name="device_id"/>
+      <unique-column name="alarm_type"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="DeviceDefaultConfigs" idMethod="native" phpName="Devicedefaultconfigs">
+    <column name="ID" phpName="Id" type="BIGINT" sqlType="bigint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="SoilTopMoistureIntercept" phpName="Soiltopmoistureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilTopMoistureMultiplier" phpName="Soiltopmoisturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleMoistureIntercept" phpName="Soilmiddlemoistureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleMoistureMultiplier" phpName="Soilmiddlemoisturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilBottomMoistureIntercept" phpName="Soilbottommoistureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilBottomMoistureMultiplier" phpName="Soilbottommoisturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripECIntercept" phpName="Sensordripecintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripECMultiplier" phpName="Sensordripecmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripPHIntercept" phpName="Sensordripphintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripPHMultiplier" phpName="Sensordripphmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainECIntercept" phpName="Sensordrainecintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainECMultiplier" phpName="Sensordrainecmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainPHIntercept" phpName="Sensordrainphintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainPHMultiplier" phpName="Sensordrainphmultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainVolumeIntercept" phpName="Sensordrainvolumeintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainVolumeMultiplier" phpName="Sensordrainvolumemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripVolumeMeter" phpName="Sensordripvolumemeter" type="DOUBLE" required="true"/>
+    <column name="BatteryVoltsIntercept" phpName="Batteryvoltsintercept" type="DOUBLE" required="true"/>
+    <column name="BatteryVoltsMultiplier" phpName="Batteryvoltsmultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilTopTemperatureIntercept" phpName="Soiltoptemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilTopTemperatureMultiplier" phpName="Soiltoptemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleTemperatureIntercept" phpName="Soilmiddletemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilMiddleTemperatureMultiplier" phpName="Soilmiddletemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SoilBottomTemperatureIntercept" phpName="Soilbottomtemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SoilBottomTemperatureMultiplier" phpName="Soilbottomtemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDripTemperatureIntercept" phpName="Sensordriptemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripTemperatureMultiplier" phpName="Sensordriptemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorDrainTemperatureIntercept" phpName="Sensordraintemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDrainTemperatureMultiplier" phpName="Sensordraintemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideHumidityIntercept" phpName="Sensoroutsidehumidityintercept" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideHumidityMultiplier" phpName="Sensoroutsidehumiditymultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorInsideHumidityIntercept" phpName="Sensorinsidehumidityintercept" type="DOUBLE" required="true"/>
+    <column name="SensorInsideHumidityMultiplier" phpName="Sensorinsidehumiditymultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideTemperatureIntercept" phpName="Sensoroutsidetemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorOutsideTemperatureMultiplier" phpName="Sensoroutsidetemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorInsideTemperatureMultiplier" phpName="Sensorinsidetemperaturemultiplier" type="DOUBLE" required="true"/>
+    <column name="SensorInsideTemperatureIntercept" phpName="Sensorinsidetemperatureintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripVolumeIntercept" phpName="Sensordripvolumeintercept" type="DOUBLE" required="true"/>
+    <column name="SensorDripVolumeMultiplier" phpName="Sensordripvolumemultiplier" type="DOUBLE" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="DeviceProcessLog" idMethod="native" phpName="Deviceprocesslog">
+    <column name="device_process_log_id" phpName="DeviceProcessLogId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="DevID" phpName="Devid" type="VARCHAR" size="255" required="true"/>
+    <column name="method" phpName="Method" type="CHAR" sqlType="enum('pump','drain')" required="true"/>
+    <column name="trigger_type" phpName="TriggerType" type="CHAR" sqlType="enum('UI','Batch')" required="true"/>
+    <column name="process_start_timestamp" phpName="ProcessStartTimestamp" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="request_data" phpName="RequestData" type="LONGVARCHAR" required="true"/>
+    <column name="integration_request_timestamp" phpName="IntegrationRequestTimestamp" type="TIMESTAMP"/>
+    <column name="integration_response_data" phpName="IntegrationResponseData" type="LONGVARCHAR"/>
+    <column name="process_end_timestamp" phpName="ProcessEndTimestamp" type="TIMESTAMP"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="DeviceRawPayload" idMethod="native" phpName="Devicerawpayload">
+    <column name="Counter" phpName="Counter" type="INTEGER" required="true"/>
+    <column name="RawID" phpName="Rawid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="PayloadRaw" phpName="Payloadraw" type="LONGVARCHAR" required="true"/>
+    <column name="PayloadFields" phpName="Payloadfields" type="LONGVARCHAR" required="true"/>
+    <column name="Metadata" phpName="Metadata" type="LONGVARCHAR" required="true"/>
+    <column name="CreatedAt" phpName="Createdat" type="DATETIME" required="true"/>
+    <column name="SensorID" phpName="Sensorid" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="DeviceUplinks" idMethod="native" phpName="Deviceuplinks">
+    <column name="RawID" phpName="Rawid" type="INTEGER"/>
+    <column name="ClientID" phpName="Clientid" type="VARCHAR" size="255" required="true"/>
+    <column name="SensorID" phpName="Sensorid" type="VARCHAR" size="255" required="true"/>
+    <column name="HardwareSerial" phpName="Hardwareserial" type="VARCHAR" size="255" required="true"/>
+    <column name="Port" phpName="Port" type="INTEGER" required="true"/>
+    <column name="SensorDripEC" phpName="Sensordripec" type="DOUBLE"/>
+    <column name="SensorDripPH" phpName="Sensordripph" type="DOUBLE"/>
+    <column name="SensorDripVolume" phpName="Sensordripvolume" type="DOUBLE"/>
+    <column name="SensorDrainEC" phpName="Sensordrainec" type="DOUBLE"/>
+    <column name="SensorDrainPH" phpName="Sensordrainph" type="DOUBLE"/>
+    <column name="SensorDrainVolume" phpName="Sensordrainvolume" type="DOUBLE"/>
+    <column name="SensorInsideHumidity" phpName="Sensorinsidehumidity" type="DOUBLE"/>
+    <column name="SoilTopMoisture" phpName="Soiltopmoisture" type="DOUBLE"/>
+    <column name="SoilMiddleMoisture" phpName="Soilmiddlemoisture" type="DOUBLE"/>
+    <column name="SoilBottomMoisture" phpName="Soilbottommoisture" type="DOUBLE"/>
+    <column name="RecordID" phpName="Recordid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="SensorSpareChannel" phpName="Sensorsparechannel" type="INTEGER"/>
+    <column name="SensorInsideTemperature" phpName="Sensorinsidetemperature" type="INTEGER"/>
+    <column name="SensorOutsideTemperature" phpName="Sensoroutsidetemperature" type="INTEGER"/>
+    <column name="SystemFaultIndication" phpName="Systemfaultindication" type="INTEGER"/>
+    <column name="GPSTime" phpName="Gpstime" type="DATETIME" required="true"/>
+    <column name="Timestamp" phpName="Timestamp" type="DATETIME" required="true"/>
+    <column name="SensorOutsideHumidity" phpName="Sensoroutsidehumidity" type="DOUBLE"/>
+    <column name="BatteryVolts" phpName="Batteryvolts" type="DOUBLE"/>
+    <column name="SoilTopTemperature" phpName="Soiltoptemperature" type="DOUBLE"/>
+    <column name="SoilMiddleTemperature" phpName="Soilmiddletemperature" type="DOUBLE"/>
+    <column name="SoilBottomTemperature" phpName="Soilbottomtemperature" type="DOUBLE"/>
+    <column name="SensorDripTemperature" phpName="Sensordriptemperature" type="DOUBLE"/>
+    <column name="SensorDrainTemperature" phpName="Sensordraintemperature" type="DOUBLE"/>
+    <column name="WaterMeterCount" phpName="Watermetercount" type="DOUBLE"/>
+    <column name="AccumulativeDripVolume" phpName="Accumulativedripvolume" type="DOUBLE"/>
+    <column name="AccumulativeDrainVolume" phpName="Accumulativedrainvolume" type="DOUBLE"/>
+    <column name="DeviceTemperature" phpName="Devicetemperature" type="INTEGER"/>
+    <index name="sensor_date_id">
+      <index-column name="SensorID"/>
+      <index-column name="Timestamp"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="Devices" idMethod="native" phpName="Devices">
+    <column name="ID" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="LoggedUserID" phpName="Loggeduserid" type="INTEGER" required="true"/>
+    <column name="Type" phpName="Type" type="VARCHAR" size="255"/>
+    <column name="AppEui" phpName="Appeui" type="VARCHAR" size="255"/>
+    <column name="AppID" phpName="Appid" type="VARCHAR" size="255"/>
+    <column name="AppKey" phpName="Appkey" type="VARCHAR" size="255"/>
+    <column name="AppSKey" phpName="Appskey" type="VARCHAR" size="255"/>
+    <column name="DevAddr" phpName="Devaddr" type="VARCHAR" size="255"/>
+    <column name="DevID" phpName="Devid" type="VARCHAR" size="255" required="true"/>
+    <column name="ActivationConstraints" phpName="Activationconstraints" type="VARCHAR" size="255"/>
+    <column name="Latitude" phpName="Latitude" type="DOUBLE"/>
+    <column name="Longitude" phpName="Longitude" type="DOUBLE"/>
+    <column name="Location" phpName="Location" type="LONGVARCHAR"/>
+    <column name="Attributes" phpName="Attributes" type="LONGVARCHAR"/>
+    <column name="DisableFCntCheck" phpName="Disablefcntcheck" type="TINYINT"/>
+    <column name="Uses32BitFCnt" phpName="Uses32bitfcnt" type="TINYINT"/>
+    <column name="NwkSKey" phpName="Nwkskey" type="VARCHAR" size="255"/>
+    <column name="TTNFlag" phpName="Ttnflag" type="VARCHAR" size="255" required="true"/>
+    <column name="CreatedAt" phpName="Createdat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="UpdatedAt" phpName="Updatedat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="Description" phpName="Description" type="VARCHAR" size="255"/>
+    <column name="FCntDown" phpName="Fcntdown" type="DOUBLE"/>
+    <column name="FCntUp" phpName="Fcntup" type="DOUBLE"/>
+    <column name="LastSeen" phpName="Lastseen" type="DOUBLE"/>
+    <column name="PumpOneTriggerDate" phpName="Pumponetriggerdate" type="DATETIME"/>
+    <column name="PumpTwoTriggerDate" phpName="Pumptwotriggerdate" type="DATETIME"/>
+    <column name="PumpOneDripDate" phpName="Pumponedripdate" type="DATETIME"/>
+    <column name="PumpTwoDrainDate" phpName="Pumptwodraindate" type="DATETIME"/>
+    <column name="PumpOneDripAmount" phpName="Pumponedripamount" type="DOUBLE"/>
+    <column name="PumpTwoDrainAmount" phpName="Pumptwodrainamount" type="DOUBLE"/>
+    <column name="Timezone" phpName="Timezone" type="VARCHAR" size="64" required="true" defaultValue="America/Los_Angeles"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="Faqs" idMethod="native" phpName="Faqs">
+    <column name="FaqID" phpName="Faqid" type="BIGINT" sqlType="bigint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="Question" phpName="Question" type="LONGVARCHAR" required="true"/>
+    <column name="Answer" phpName="Answer" type="LONGVARCHAR" required="true"/>
+    <column name="CreatedAt" phpName="Createdat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="UpdatedAt" phpName="Updatedat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="SensorDeviceAlerts" idMethod="native" phpName="Sensordevicealerts">
+    <column name="UserID" phpName="Userid" type="INTEGER" required="true"/>
+    <column name="SensorID" phpName="Sensorid" type="VARCHAR" size="255" required="true"/>
+    <column name="Timestamp" phpName="Timestamp" type="DATETIME" required="true"/>
+    <column name="IsDeleted" phpName="Isdeleted" type="CHAR" sqlType="enum('0','1')" required="true" defaultValue="0"/>
+    <column name="CreatedAt" phpName="Createdat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="UpdatedAt" phpName="Updatedat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="AlertID" phpName="Alertid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="Message" phpName="Message" type="LONGVARCHAR" required="true"/>
+    <column name="AlarmConfigurationID" phpName="Alarmconfigurationid" type="INTEGER" required="true"/>
+    <column name="AlarmThresholdType" phpName="Alarmthresholdtype" type="VARCHAR" size="5" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="TTNDownlinkWebhooks" idMethod="native" phpName="Ttndownlinkwebhooks">
+    <column name="ttn_downlink_id" phpName="TtnDownlinkId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="downlink_type" phpName="DownlinkType" type="VARCHAR" size="45" required="true"/>
+    <column name="data" phpName="Data" type="LONGVARCHAR" required="true"/>
+    <column name="timestamp" phpName="Timestamp" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="Users" idMethod="native" phpName="Users">
+    <column name="FirstName" phpName="Firstname" type="VARCHAR" size="255" required="true"/>
+    <column name="LastName" phpName="Lastname" type="VARCHAR" size="255" required="true"/>
+    <column name="Email" phpName="Email" type="VARCHAR" size="255" required="true"/>
+    <column name="UserType" phpName="Usertype" type="CHAR" sqlType="enum('admin','customer')" required="true" defaultValue="customer"/>
+    <column name="Password" phpName="Password" type="VARCHAR" size="255"/>
+    <column name="Phone" phpName="Phone" type="VARCHAR" size="255"/>
+    <column name="City" phpName="City" type="VARCHAR" size="255"/>
+    <column name="State" phpName="State" type="VARCHAR" size="255"/>
+    <column name="PostalCode" phpName="Postalcode" type="VARCHAR" size="255"/>
+    <column name="Address" phpName="Address" type="VARCHAR" size="255"/>
+    <column name="Company" phpName="Company" type="VARCHAR" size="255" required="true"/>
+    <column name="IsActive" phpName="Isactive" type="CHAR" sqlType="enum('0','1')" required="true" defaultValue="1"/>
+    <column name="EnableAlerts" phpName="Enablealerts" type="CHAR" sqlType="enum('0','1')" required="true" defaultValue="0"/>
+    <column name="ForgotPasswordToken" phpName="Forgotpasswordtoken" type="VARCHAR" size="255"/>
+    <column name="LastLogin" phpName="Lastlogin" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="CreatedAt" phpName="Createdat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="UpdatedAt" phpName="Updatedat" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="UserID" phpName="Userid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="Timezone" phpName="Timezone" type="VARCHAR" size="255"/>
+    <column name="ParentID" phpName="Parentid" type="INTEGER" required="true" defaultValue="0"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="failed_jobs" idMethod="native" phpName="FailedJobs">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="connection" phpName="Connection" type="LONGVARCHAR" required="true"/>
+    <column name="queue" phpName="Queue" type="LONGVARCHAR" required="true"/>
+    <column name="payload" phpName="Payload" type="CLOB" required="true"/>
+    <column name="exception" phpName="Exception" type="CLOB" required="true"/>
+    <column name="failed_at" phpName="FailedAt" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="jobs" idMethod="native" phpName="Jobs">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="queue" phpName="Queue" type="VARCHAR" size="255" required="true"/>
+    <column name="payload" phpName="Payload" type="CLOB" required="true"/>
+    <column name="attempts" phpName="Attempts" type="TINYINT" sqlType="tinyint unsigned" required="true"/>
+    <column name="reserved_at" phpName="ReservedAt" type="INTEGER" sqlType="int unsigned"/>
+    <column name="available_at" phpName="AvailableAt" type="INTEGER" sqlType="int unsigned" required="true"/>
+    <column name="created_at" phpName="CreatedAt" type="INTEGER" sqlType="int unsigned" required="true"/>
+    <index name="jobs_queue_index">
+      <index-column name="queue"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="migrations" idMethod="native" phpName="Migrations">
+    <column name="id" phpName="Id" type="INTEGER" sqlType="int unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="migration" phpName="Migration" type="VARCHAR" size="255" required="true"/>
+    <column name="batch" phpName="Batch" type="INTEGER" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

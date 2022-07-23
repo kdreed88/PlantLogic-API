@@ -1,0 +1,7 @@
+### Commands
+
+* Reverse Engineer Database into Schema
+./propel reverse --database-name plantlogic --output-dir "../../app/configs/propel/schemas" --config-dir "../../app/configs/propel/config" "mysql:host=10.0.80.19;port=3306;dbname=plantlogic;user=plantlogic;password=P@$$w0rd"
+
+* Build the modals
+./propel model:build --config-dir "../../app/configs/propel/config"
